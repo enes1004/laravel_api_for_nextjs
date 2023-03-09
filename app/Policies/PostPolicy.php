@@ -63,7 +63,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $this->is_author($user,$post)
+        return $this->is_author($user,$post);
     }
 
     /**
@@ -75,7 +75,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $this->is_author($user,$post)
+        return $this->is_author($user,$post);
     }
 
     /**
@@ -87,7 +87,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return $this->is_author($user,$post)
+        return $this->is_author($user,$post);
     }
 
     /**
