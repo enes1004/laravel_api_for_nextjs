@@ -19,7 +19,7 @@ class PostController extends Controller
     // for nextjs static caching.
     // Gets data without user authorization. guarded by middleware "client" (of Laravel Passport) instead
     public function indexForStaticCaching(){
-      return response()->json(Post::all());
+      return response()->json(Post::all()->load("author.name")->makeHidden(["content"]));
     }
     public function showForStaticCaching(Post $post){
       return response()->json($post);
