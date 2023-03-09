@@ -1,8 +1,32 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import { Head } from '@inertiajs/inertia-react';
 
 export default function Dashboard(props) {
+    useEffect(()=>{
+      window.axios.get('/api/user')
+      .then(response => {
+          console.log(response.data);
+      });
+      window.axios.get('/api/post')
+      .then(response => {
+          console.log(response.data);
+      });
+      window.axios.get('/api/post/1')
+      .then(response => {
+          console.log(response.data);
+      });
+      window.axios.get('/api/post/6')
+      .then(response => {
+          console.log(response.data);
+      });
+
+      window.axios.get('/api/post/data')
+      .then(response => {
+          console.log(response.data);
+      });
+
+    },[]);
     return (
         <Authenticated
             auth={props.auth}

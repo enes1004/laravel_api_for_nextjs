@@ -3333,6 +3333,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Dashboard(props) {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    window.axios.get('/api/user').then(function (response) {
+      console.log(response.data);
+    });
+    window.axios.get('/api/post').then(function (response) {
+      console.log(response.data);
+    });
+    window.axios.get('/api/post/1').then(function (response) {
+      console.log(response.data);
+    });
+    window.axios.get('/api/post/6').then(function (response) {
+      console.log(response.data);
+    });
+    window.axios.get('/api/post/data').then(function (response) {
+      console.log(response.data);
+    });
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
     auth: props.auth,
     errors: props.errors,

@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(Request $request){
       $this->authorize('viewAny', Post::class);
-      return response()->json(Post::all()->with("author.name")->makeHidden(["content"]));
+      return response()->json(Post::all()->load("author.name")->makeHidden(["content"]));
     }
     public function show(Request $request,Post $post){
       $this->authorize('view',$post);

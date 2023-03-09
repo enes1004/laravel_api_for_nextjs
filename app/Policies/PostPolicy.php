@@ -40,7 +40,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return $this->is_author($user,$post) || $user->can_see_content_groups()->where("content_group_id",$post->content_group_id)->exists();
+        return $this->isAuthor($user,$post) || $user->can_see_content_groups()->where("content_group_id",$post->content_group_id)->exists();
     }
 
     /**
@@ -63,7 +63,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $this->is_author($user,$post);
+        return $this->isAuthor($user,$post);
     }
 
     /**
@@ -75,7 +75,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $this->is_author($user,$post);
+        return $this->isAuthor($user,$post);
     }
 
     /**
@@ -87,7 +87,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return $this->is_author($user,$post);
+        return $this->isAuthor($user,$post);
     }
 
     /**
