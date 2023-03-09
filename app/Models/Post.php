@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $dates=["date"];
+    protected $with=["author"];
 
     public function author(){
         return $this->belongsTo(User::class);
