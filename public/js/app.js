@@ -3337,15 +3337,24 @@ function Dashboard(props) {
     window.axios.get('/api/user').then(function (response) {
       console.log(response.data);
     });
+    // can see anyone logged in
     window.axios.get('/api/post').then(function (response) {
       console.log(response.data);
     });
+    // user id=94 cannot see
     window.axios.get('/api/post/1').then(function (response) {
       console.log(response.data);
     });
+    // user id=94 can see per content_group
     window.axios.get('/api/post/6').then(function (response) {
       console.log(response.data);
     });
+    // user id=94 can see as author
+    window.axios.get('/api/post/29').then(function (response) {
+      console.log(response.data);
+    });
+
+    // cannot see without client_credentials grant
     window.axios.get('/api/post/data').then(function (response) {
       console.log(response.data);
     });

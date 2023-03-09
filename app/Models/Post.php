@@ -11,7 +11,7 @@ class Post extends Model
     protected $with=["author"];
 
     public function author(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function content_group(){
