@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(["prefix"=>"post","controller"=>"PostController"],function(){
   Route::get("","index");
+  Route::get("data","dataForStaticCaching")->middleware("client");
   Route::get("{post}","show");
 });

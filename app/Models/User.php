@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    public function can_see_content_groups(){
+        return $this->belongsToMany(ContentGroup::class,"user_content_group")->using(UserContentGroup::class)->withTimestamps();
+    }
+
+
 }
