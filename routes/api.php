@@ -18,8 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(["prefix"=>"post","controller"=>"PostController","middleware"=>["auth:api"]],function(){
-  Route::get("","index");
-  Route::get("data","dataForStaticCaching")->middleware("client")->withoutMiddleware(["auth:api"]);
-  Route::get("{post}","show");
+Route::group(["prefix"=>"post","controller"=>"PostController"],function(){
+  Route::group(["middleware"=>["auth:api"]],function(){
+    Route::get("","index");
+    Route::get("{post}","show");
+  });
+  Route::group(["middleware"=>["client"],"prefix"=>"data"],function(){
+    Route::get("","indexForStaticCaching");
+    Route::get("{post}","showForStaticCaching");
+  });
 });
