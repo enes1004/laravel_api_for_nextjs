@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    $user=$request->user();
+    return collect($user->toArray())->merge([
+        "can_see_content_group_ids"=>$user->can_see_content_groups->pluck("id")
+      ]);
 });
 
 Route::group(["middleware"=>"client","prefix"=>"post/data","controller"=>"PostController"],function(){
