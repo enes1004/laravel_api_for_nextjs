@@ -3358,6 +3358,17 @@ function Dashboard(props) {
     window.axios.get('/api/post/data').then(function (response) {
       console.log(response.data);
     });
+    // check auth
+    window.axios.get('/api/post/auth/1').then(function (response) {
+      console.log(response.data);
+    });
+    ;
+
+    // check auth
+    window.axios.get('/api/post/auth/6').then(function (response) {
+      console.log(response.data);
+    });
+    ;
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
     auth: props.auth,

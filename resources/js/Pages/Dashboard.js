@@ -34,6 +34,18 @@ export default function Dashboard(props) {
       .then(response => {
           console.log(response.data);
       });
+      // check auth
+      window.axios.get('/api/post/auth/1')
+      .then(response => {
+          console.log(response.data);
+      });;
+
+      // check auth
+      window.axios.get('/api/post/auth/6')
+      .then(response => {
+          console.log(response.data);
+      });;
+
 
     },[]);
     return (

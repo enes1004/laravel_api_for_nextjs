@@ -24,5 +24,9 @@ class PostController extends Controller
     public function showForStaticCaching(Post $post){
       return response()->json($post);
     }
+    public function auth(Request $request,Post $post){
+      $auth=optional(auth("api")->user())->can("view",$post);
+      return response()->json(["fb"=>$auth?:false,"reason"=>$auth?"":"must purchase"]);
+    }
 
 }

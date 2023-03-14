@@ -28,6 +28,7 @@ Route::group(["middleware"=>"client","prefix"=>"post/data","controller"=>"PostCo
 
 Route::group(["prefix"=>"post","controller"=>"PostController"],function(){
   Route::group(["middleware"=>["auth:api"]],function(){
+    Route::get("auth/{post}","auth")->withoutMiddleware("auth:api");
     Route::get("","index");
     Route::get("{post}","show");
   });
