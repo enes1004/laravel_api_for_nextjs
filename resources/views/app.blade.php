@@ -14,6 +14,9 @@
 
         <!-- Scripts -->
         @routes
+        <script>
+            window.example_user={{ Illuminate\Support\Js::from(\App\Models\User::inRandomOrder()->limit(3)->pluck('email')->toArray()) }}
+        </script>
         <script src="{{ mix('js/app.js') }}" defer></script>
         @inertiaHead
     </head>
