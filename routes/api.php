@@ -24,11 +24,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(["middleware"=>"client","prefix"=>"post/data","controller"=>"PostController"],function(){
   Route::get("","indexForStaticCaching");
   Route::get("{post}","showForStaticCaching");
+  Route::get("content_group/{post}","content_group");
 });
 
 Route::group(["prefix"=>"post","controller"=>"PostController"],function(){
   Route::group(["middleware"=>["auth:api"]],function(){
-    Route::get("auth/{post}","auth")->withoutMiddleware("auth:api");
+    Route::get("{post}/auth","auth")->withoutMiddleware("auth:api");
     Route::get("","index");
     Route::get("{post}","show");
   });

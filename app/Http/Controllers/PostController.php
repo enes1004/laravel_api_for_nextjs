@@ -28,5 +28,8 @@ class PostController extends Controller
       $auth=optional(auth("api")->user())->can("view",$post);
       return response()->json(["fb"=>$auth?:false,"reason"=>$auth?"":"must purchase"]);
     }
+    public function content_group(Request $request,Post $post){
+      return response()->json($post->content_group);
+    }
 
 }
